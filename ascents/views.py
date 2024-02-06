@@ -20,6 +20,12 @@ class AscentDetailsView(generic.DetailView):
     template_name = "ascents/ascent_details.html"
 
 
+class AscentDeleteView(generic.edit.DeleteView):
+    model = Ascent
+    success_url = "/logAscents/"
+    template_name = "ascents/delete_ascent.html"
+
+
 def upload_ascent(request):
     title="add an ascent"
 
