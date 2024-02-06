@@ -1,0 +1,21 @@
+{% extends "../base.html" %}
+
+{% block content %}
+
+<h3>Ascents list</h3>
+
+{% if latest_ascents_list %}
+    <ul>
+    {% for ascent in latest_ascents_list %}
+        <li><a href="{% url 'ascent-details' ascent.id %}">
+          {{ ascent.name }}
+        </a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Ascent uploaded.</p>
+{% endif %}
+
+<a href="{% url 'upload-ascent' %}">Upload your ascents!</a>
+
+{% endblock %}
