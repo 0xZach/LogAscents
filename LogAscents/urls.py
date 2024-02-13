@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('logAscents/', include("ascents.urls")),
     path('admin/', admin.site.urls),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # to display a file (image/video) one needs to add the media path
 # TODO: this way of uploading and displaying videos doesn't work in production

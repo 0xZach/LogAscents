@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',                    # gives more versatility when using css
-    'ascents.apps.AscentsConfig',       # calls back to the config of the app created
+    'widget_tweaks',                     # gives more versatility when using css
+    'ascents.apps.AscentsConfig',        # calls back to the config of the app created
+    'django_cleanup.apps.CleanupConfig', # auto deletes file when filefield's model is deleted
 ]
 
 MIDDLEWARE = [

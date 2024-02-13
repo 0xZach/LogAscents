@@ -6,6 +6,8 @@
 <p>Ascent: {{ ascent.name }}</p>
 <p>Date: {{ ascent.date_uploaded }}</p>
 <p>Grade: {{ ascent.grade.name }}</p>
+<p>User: {{ ascent.user }}</p>
+<!--a href="{ % url 'user-profile' pk=ascent.user.pk % } ">{{ ascent.user.name }} </a-->
 <video width="400px" height="400px" controls>
     <source src="{{ ascent.video.url }}" type="video/mp4">
   Your browser does not support the video tag.

@@ -17,4 +17,4 @@ class AscentForm(forms.ModelForm):
 
     class Meta:
         model = Ascent
-        fields = ('name','grade','date_uploaded','video')
+        fields = ('name','grade','date_uploaded','video','user')

@@ -39,6 +39,7 @@ class Ascent(models.Model):
             validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])]
             )
     date_uploaded = models.DateTimeField(default=timezone.now)
+    user = models.CharField(max_length=100, default="")
 
 
     # Methods
