@@ -3,35 +3,42 @@
 
 {% block content %}
 
-<h3>Add an Ascent</h3>
+<div id="form_body">
 
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
+  <h3>Add an Ascent</h3>
 
-  <div>
-    {% render_field form.name %}
-    <p>Note: if left empty the name will be generated as follow:" GRADE_NAME (DATE)"</p>
-  </div>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
 
-  <div>
-    {% render_field form.date_uploaded %}
-  </div>
+    <div class="input">
+      <h4>Name</h4>
+      {% render_field form.name %}
+      <p>Note: if left empty the name will be generated as follow:" GRADE_NAME (DATE)"</p>
+    </div>
 
-  <div>
-    {% render_field form.grade %}
-  </div>
+    <div class="input">
+      <h4>Date of the ascent</h4>
+      {% render_field form.date_uploaded %}
+    </div>
 
-  <div>
-    {% render_field form.video %}
-  </div>
+    <div class="input">
+      <h4>Grade</h4>
+      {% render_field form.grade %}
+    </div>
 
-  <div>
-    {% render_field form.user %}
-  </div>
+    <div class="input_video">
+      <h4>video</h4>
+      {% render_field form.video %}
+    </div>
 
-  <input type="submit" value="submit">
-</form>
+    <div class="input">
+      <h4>User</h4>
+      {% render_field form.user %}
+    </div>
 
-<a href="{% url 'index' %}">Back to index</a>
+    <input class="button-8" type="submit" value="upload">
+  </form>
+  <!--<a href="{% url 'index' %}">Back to index</a>-->
+</div>
 
 {% endblock %}

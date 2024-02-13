@@ -12,7 +12,8 @@ and 'date_uploaded' is changed from being a normal text input to being a true da
 """
 class AscentForm(forms.ModelForm):
     
-    name = forms.CharField(required=False)
+    name = forms.CharField(required=False, widget=forms.TextInput(attrs={'id': "input"}))
+    user = forms.CharField(widget=forms.TextInput(attrs={'id': "input"}))
     date_uploaded = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control', 'type':'date'}))
 
     class Meta:

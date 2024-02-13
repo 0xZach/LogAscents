@@ -9,6 +9,14 @@
     <script src="{% static 'ascents/scripts.js' %}"></script>
   </head>
   <body>
+    <div class="topnav">
+      <a class="bigemoji active" href="{% url 'index' %}">⛰️</a>
+      <!--<a href="{% url 'index' %}">Home</a>-->
+      <a href="{% url 'upload-ascent' %}">Upload</a>
+      <a href="">Lorem</a>
+      <a href="">Ipsum</a>
+    </div> 
+
     {% block content %}
 
     
