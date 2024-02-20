@@ -1,46 +1,90 @@
+/* removes default css styling */
+body {
+  all:unset;
+}
+
+
+
 /*      HEADER      */
+
+
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+  background-color: #323950;
   overflow: hidden;
-  margin-bottom:50px;
+  /*margin-bottom:50px;*/
   font-weight: bold;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
+  height: 100%;
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  padding: 16px;
+  display: block;
+  font-size: 1.5em;
 }
+
+a.right {
+  float: right;
+}
+
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #1a2137;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #0439aa;
+  background-color: #3e4a70;
   color: white;
-  font-size: 2.4em;
+  font-size: 3em;
   padding:0px 16px;
 }
 
 
 
 
-/*     BODY     */
-body {
-  background-color: #636363;
+
+
+/*      BODY      */
+
+
+#page-container {
+  position: relative;
+  display: inline-block;
+  width: 100vw;
+  min-height: 90vh;
+  background-color: #555B70;
   /*background: url("/static/img/test_background.jpg") 10% 0 repeat;*/
   font-family: sans-serif;
 }
+
+
+
+
+
+
+
+/*     FOOTER     */
+
+
+#footer {
+  position: relative;
+  display: block;
+  bottom: 0;
+  width: 100%;
+  min-height: 10vh;
+  background-color: #393d4b;
+  color: white;
+  text-align: center;
+}
+
 
 
 
@@ -52,20 +96,23 @@ body {
 
 
 
-
-
 h1 {
   font-family: Impact, sans-serif;
   color: #CE5937;
 }
 
 h3 {
-  text-align:center;
-  border-bottom:1px solid black;
+  background-color: #434f77;
+  text-align:left;
+  padding: 20px;
+  margin-bottom: 0;
   min-width:fit;
   font-size:2.5em;
   font-weight: bold;
   margin-top: 0;
+  color:white;
+  /*-webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;*/
 }
 
 h4 {
@@ -102,13 +149,14 @@ h4 {
 
 #form_body{
   margin: auto;
-  width: 50%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 70%;
   border: 3px solid lightgray;
   padding: 25px;
-  border-radius: 25px;
+  /*border-radius: 25px;*/
   background-color: #cecbcb;
 }
-
 
 
 
@@ -119,44 +167,42 @@ h4 {
 
 
 
-
-
 #prev_box {
-    cursor:pointer;
-    border:2px solid black;
-    border-radius:15px;
-    padding:10px;
-    padding-right:50px;
-    padding-left:15px;
-    max-width:fit-content;
-  }
-  
-  #prev_title {
-    font-size:1.5em;
-    font-weight:bold;
-  }
-  
-  #prev_date{
-    font-size:0.8em;
-    margin-bottom:5px;
-  }
-  
-  /*
-  #prev_user {
-    max-width:fit-content;
-    transition: background-color 0.5s;
-  }
-  
-  #prev_user:hover {
-    background-color:lightgray;
-  }*/
+  cursor:pointer;
+  border:2px solid black;
+  border-radius:15px;
+  padding:10px;
+  padding-right:50px;
+  padding-left:15px;
+  max-width:fit-content;
+}
 
+#prev_title {
+  font-size:1.5em;
+  font-weight:bold;
+}
+
+#prev_date{
+  font-size:0.8em;
+  margin-bottom:5px;
+}
+
+/*
+#prev_user {
+  max-width:fit-content;
+  transition: background-color 0.5s;
+}
+
+#prev_user:hover {
+  background-color:lightgray;
+}*/
 
 
 
 
 
 /*    CUSTOM BUTTON    */
+
 
 .button-8 {
   background-color: #e1ecf4;
@@ -211,7 +257,7 @@ h4 {
   font-weight: 400;
   line-height: 1.29;
   letter-spacing: .16px;
-  border-radius: 0;
+  border-radius: 10px;
   outline: 2px solid transparent;
   outline-offset: -2px;
   width: 40%;

@@ -9,18 +9,23 @@
     <script src="{% static 'ascents/scripts.js' %}"></script>
   </head>
   <body>
-    <div class="topnav">
-      <a class="bigemoji active" href="{% url 'index' %}">⛰️</a>
-      <!--<a href="{% url 'index' %}">Home</a>-->
-      <a href="{% url 'upload-ascent' %}">Upload</a>
-      <a href="">Lorem</a>
-      <a href="">Ipsum</a>
-    </div> 
+    <div id="page-container">
+      <div class="topnav">
+        <a class="bigemoji active" href="{% url 'index' %}">⛰️</a>
+        <!--<a href="{% url 'index' %}">Home</a>-->
+        <a href="{% url 'upload-ascent' %}">Upload</a>
+        <a href="">Lorem</a>
+        <a href="">Ipsum</a>
+        <a class="right" href="">Login</a>
+      </div> 
 
-    {% block content %}
+      {% block content %}
 
-    
+      
 
-    {% endblock %}
+      {% endblock %}
+    </div>
+    <footer id="footer"></footer>
   </body>
+  
 </html>
