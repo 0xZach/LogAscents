@@ -34,7 +34,7 @@ class Ascent(models.Model):
     name = models.CharField(max_length=100, default= "")
     grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
     video = models.FileField(
-            upload_to='ascents/', # determines which subfolder of MEDIA_ROOT will recieve the uploaded file
+            upload_to='videos/', # determines which subfolder of MEDIA_ROOT will recieve the uploaded file
             null=True,
             validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])]
             )
