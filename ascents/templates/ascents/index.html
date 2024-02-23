@@ -12,7 +12,7 @@
             {{ ascent.name }}
         </div>
         <div id="prev_date">
-            {{ ascent.date_uploaded }}
+            {{ ascent.date_uploaded|date:"F d, Y" }}
         </div>
         <div id="prev_user">
             {{ ascent.user }}
@@ -23,8 +23,9 @@
     </ul>
 {% else %}
     <p>No Ascent uploaded.</p>
+    <a href="{% url 'upload-ascent' %}">Upload your ascents!</a>
 {% endif %}
 
-<a href="{% url 'upload-ascent' %}">Upload your ascents!</a>
+
 
 {% endblock %}
