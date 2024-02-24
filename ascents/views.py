@@ -28,7 +28,7 @@ def ascent_list(request):
     template = "ascents/list.html"
 
     if request.GET.get("query"):
-        query = '%'+request.GET.get("query")+'%'
+        query = request.GET.get("query")
         theList = Ascent.objects.filter(name__icontains=query)
     else:
         theList = Ascent.objects.order_by("-date_uploaded")[:15]
