@@ -1,0 +1,31 @@
+{% extends "../base.html" %}
+
+{% block content %}
+
+<h3>Ascents list</h3>
+
+{% if latest_ascents_list %}
+    <ul>
+    {% for ascent in latest_ascents_list %}
+    <div id="prev_box" onclick="redirect_to_ascent('{{ascent.pk}}')">
+        <div id="prev_title">
+            {{ ascent.name }}
+        </div>
+        <div id="prev_date">
+            {{ ascent.date_uploaded|date:"F d, Y" }}
+        </div>
+        <div id="prev_user">
+            {{ ascent.user }}
+        <!--a href=" { % url 'user-profile' pk=ascent.user.pk % } ">  ascent.user.name </a-->
+        </div>
+    </div>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Ascent uploaded.</p>
+    <a href="{% url 'upload-ascent' %}">Upload your ascents!</a>
+{% endif %}
+
+
+
+{% endblock %}

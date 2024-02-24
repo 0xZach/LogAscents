@@ -297,8 +297,8 @@ h4 {
 }
 
 #det_video{
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 800px;
+  max-height: 800px;
 }
 
 #det_title {
@@ -333,9 +333,13 @@ h4 {
 }
 
 #grade_side {
+  text-align: center;
+  width:40px;
+  height: 40px;
+  line-height: 40px;
   float: right;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 50%;
   background-color: white;
 }

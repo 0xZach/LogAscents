@@ -7,12 +7,10 @@ from .forms import AscentForm
 
 
 
-class IndexView(generic.ListView):
-    template_name = "ascents/index.html"
-    context_object_name = "latest_ascents_list"
-    
-    def get_queryset(self):
-        return Ascent.objects.order_by("-date_uploaded")[:15]
+def Index(request):
+    template = "ascents/index.html"
+    context={}
+    return render(request,template,context)
 
 
 class AscentDetailsView(generic.DetailView):
@@ -26,8 +24,22 @@ class AscentDeleteView(generic.edit.DeleteView):
     template_name = "ascents/delete_ascent.html"
 
 
+def ascent_list(request):
+    template = "ascents/list.html"
+
+    if request.GET.get("query"):
+        query = '%'+request.GET.get("query")+'%'
+        theList = Ascent.objects.filter(name__icontains=query)
+    else:
+        theList = Ascent.objects.order_by("-date_uploaded")[:15]
+    
+    context = {
+        'latest_ascents_list':theList,
+    }
+    return render(request,template,context)
+
+
 def upload_ascent(request):
-    title="add an ascent"
 
     if request.method == 'POST':
         form = AscentForm(request.POST, request.FILES)
@@ -36,12 +48,10 @@ def upload_ascent(request):
         else:
             context = {
                 'form': form,
-                'title': title,
             }
             return render(request,'ascents/upload_ascent.html',context)
 
     context = {
         'form':AscentForm(),
-        'title':title,
     }
     return render(request,'ascents/upload_ascent.html',context)
