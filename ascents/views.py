@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import generic
 
@@ -8,20 +8,15 @@ from .forms import AscentForm
 
 
 def Index(request):
-    template = "ascents/index.html"
     context={}
-    return render(request,template,context)
+    template = "ascents/index.html"
 
-
-class AscentDetailsView(generic.DetailView):
-    model = Ascent
-    template_name = "ascents/ascent_details.html"
-
-
-class AscentDeleteView(generic.edit.DeleteView):
-    model = Ascent
-    success_url = "/logAscents/"
-    template_name = "ascents/delete_ascent.html"
+    if request.method == 'POST':
+        query = request.POST['search_query']
+        # context['query'] = query
+        return redirect("list/?query="+query) # TODO: This sounds like a very junky idea
+    else:
+        return render(request,template,context)
 
 
 def ascent_list(request):
@@ -55,3 +50,16 @@ def upload_ascent(request):
         'form':AscentForm(),
     }
     return render(request,'ascents/upload_ascent.html',context)
+
+
+
+
+class AscentDetailsView(generic.DetailView):
+    model = Ascent
+    template_name = "ascents/ascent_details.html"
+
+
+class AscentDeleteView(generic.edit.DeleteView):
+    model = Ascent
+    success_url = "/logAscents/"
+    template_name = "ascents/delete_ascent.html"
