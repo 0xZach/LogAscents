@@ -187,6 +187,7 @@ h4 {
 
 
 #prev_box {
+  display: block;
   background-color: #cecbcb;
   cursor:pointer;
   /*border:2px solid black;*/
@@ -195,6 +196,9 @@ h4 {
   padding-right:50px;
   padding-left:15px;
   width:200px;
+  margin: 20px;
+  text-decoration: none;
+  color:black;
 }
 
 #prev_title {

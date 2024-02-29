@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import generic
 
+from itertools import chain
+
 from .models import Ascent
 from .forms import AscentForm
 
@@ -10,13 +12,15 @@ from .forms import AscentForm
 def Index(request):
     context={}
     template = "ascents/index.html"
-
+    
+    """
     if request.method == 'POST':
         query = request.POST['search_query']
         # context['query'] = query
         return redirect("list/?query="+query) # TODO: This sounds like a very junky idea
-    else:
-        return render(request,template,context)
+    else:"""
+    
+    return render(request,template,context)
 
 
 def ascent_list(request):
@@ -24,12 +28,16 @@ def ascent_list(request):
 
     if request.GET.get("query"):
         query = request.GET.get("query")
-        theList = Ascent.objects.filter(name__icontains=query)
+        nameList = Ascent.objects.filter(name__icontains=query)
+        gradeList = Ascent.objects.filter(grade__name=query)
+        userList = Ascent.objects.filter(user__icontains=query)
+        resultList = list(chain(nameList,gradeList,userList))
+        
     else:
-        theList = Ascent.objects.order_by("-date_uploaded")[:15]
+        resultList = Ascent.objects.order_by("-date_uploaded")[:15]
     
     context = {
-        'latest_ascents_list':theList,
+        'latest_ascents_list':resultList,
     }
     return render(request,template,context)
 

@@ -7,7 +7,7 @@
 {% if latest_ascents_list %}
     <ul>
     {% for ascent in latest_ascents_list %}
-    <div id="prev_box" onclick="redirect_to_ascent('{{ascent.pk}}')">
+    <a href={% url 'ascent-details' ascent.id %} id="prev_box">
         <div id="prev_title">
             {{ ascent.name }}
         </div>
@@ -18,7 +18,8 @@
             {{ ascent.user }}
         <!--a href=" { % url 'user-profile' pk=ascent.user.pk % } ">  ascent.user.name </a-->
         </div>
-    </div>
+    </a>
+    
     {% endfor %}
     </ul>
 {% else %}

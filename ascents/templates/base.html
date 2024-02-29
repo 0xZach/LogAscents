@@ -11,22 +11,17 @@
   <body>
     
     <div id="page-container">
-      <form method="POST">
-        {% csrf_token %}
+      <div class="topnav">
+        <a class="bigemoji active" href="{% url 'index' %}">⛰️</a>
+        <a href="{% url 'upload-ascent' %}">Upload</a>
+        <a href="{% url 'list' %}">List</a>
+        <a href="">Ipsum</a>
 
-        <div class="topnav">
-          <a class="bigemoji active" href="{% url 'index' %}">⛰️</a>
-          <a href="{% url 'upload-ascent' %}">Upload</a>
-          <a href="{% url 'list' %}">List</a>
-          <a href="">Ipsum</a>
-
-          <input id="search_bar" type="text" placeholder="search bar" name="search_query">
-          <input type="submit" id="search_button" value="🔎"> 
-          
-          <a class="right" href="">Login</a>
-        </div> 
-
-      </form>
+        <input id="search_bar" type="text" placeholder="search bar">
+        <input type="submit" id="search_button" value="🔎" onclick="search_bar()"> 
+        
+        <a class="right" href="">Login</a>
+      </div> 
 
       {% block content %}
 
