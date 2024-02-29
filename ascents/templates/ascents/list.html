@@ -7,19 +7,21 @@
 {% if latest_ascents_list %}
     <ul>
     {% for ascent in latest_ascents_list %}
-    <a href={% url 'ascent-details' ascent.id %} id="prev_box">
-        <div id="prev_title">
-            {{ ascent.name }}
-        </div>
-        <div id="prev_date">
-            {{ ascent.date_uploaded|date:"F d, Y" }}
-        </div>
-        <div id="prev_user">
-            {{ ascent.user }}
-        <!--a href=" { % url 'user-profile' pk=ascent.user.pk % } ">  ascent.user.name </a-->
+    <a href="{% url 'ascent-details' ascent.id %}" id="prev_link">
+        <div id="prev_box">
+            
+            <div id="prev_title">
+                {{ ascent.name }}
+            </div>
+            <div id="prev_date">
+                {{ ascent.date_uploaded|date:"F d, Y" }}
+            </div>
+            <div id="prev_user">
+                {{ ascent.user }}
+            <!--a href=" { % url 'user-profile' pk=ascent.user.pk % } ">  ascent.user.name </a-->
+            </div>
         </div>
     </a>
-    
     {% endfor %}
     </ul>
 {% else %}
